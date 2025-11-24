@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { registerUser } from '../../api/auth';
+import { saveUsername } from '../../utils/auth';
 import './styles.css';
 
 const Register = () => {
@@ -30,6 +31,7 @@ const Register = () => {
       const data = await registerUser(username, password);
       localStorage.setItem('token', data.token);
       localStorage.setItem('member', JSON.stringify(data.member));
+      saveUsername(username);
       navigate('/chat');
     } catch (err) {
       if (err.response && err.response.data && err.response.data.error) {

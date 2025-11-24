@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../api/auth';
+import { saveUsername } from '../../utils/auth';
 import './styles.css';
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
       const data = await loginUser(username, password);
       localStorage.setItem('token', data.token);
       localStorage.setItem('member', JSON.stringify(data.member));
+      saveUsername(username);
       navigate('/chat');
     } catch (err) {
       if (err.response && err.response.status === 401) {
