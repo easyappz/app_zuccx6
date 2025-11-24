@@ -1,0 +1,40 @@
+profile:
+  get:
+    summary: Get current member profile
+    tags:
+      - Profile
+    security:
+      - TokenAuth: []
+    responses:
+      '200':
+        description: Current member data
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+                - username
+                - created_at
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                  example: 1
+                username:
+                  type: string
+                  example: "john_doe"
+                created_at:
+                  type: string
+                  format: date-time
+                  example: "2025-11-24T11:33:07.424Z"
+      '401':
+        description: Unauthorized - invalid or missing token
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                error:
+                  type: string
+                  example: "Authentication credentials were not provided"

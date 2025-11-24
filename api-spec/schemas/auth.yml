@@ -1,0 +1,66 @@
+RegisterRequest:
+  type: object
+  required:
+    - username
+    - password
+  properties:
+    username:
+      type: string
+      minLength: 3
+      maxLength: 150
+      example: "john_doe"
+    password:
+      type: string
+      minLength: 6
+      example: "password123"
+
+LoginRequest:
+  type: object
+  required:
+    - username
+    - password
+  properties:
+    username:
+      type: string
+      example: "john_doe"
+    password:
+      type: string
+      example: "password123"
+
+AuthResponse:
+  type: object
+  required:
+    - token
+    - member
+  properties:
+    token:
+      type: string
+      example: "9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b"
+    member:
+      type: object
+      required:
+        - id
+        - username
+        - created_at
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        username:
+          type: string
+          example: "john_doe"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-11-24T11:33:07.424Z"
+
+CreateMessageRequest:
+  type: object
+  required:
+    - text
+  properties:
+    text:
+      type: string
+      minLength: 1
+      example: "Hello everyone!"
