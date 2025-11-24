@@ -1,6 +1,7 @@
 /** Не меняй код этого файла никогда */
 /** Если нужно добавить еще обработчики можешь их добавить в отдельном файле, используя interceptors */
 import axios from 'axios';
+import { getToken } from '../utils/auth';
 
 /**
  * Axios instance configuration with base URL, authentication credentials, and response interceptors
@@ -13,6 +14,20 @@ export const instance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+/** Request interceptor to add authorization token */
+instance.interceptors.request.use(
+  (config) => {
+    const token = getToken();
+    if (token) {
+      config.headers['Authorization'] = `Token ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 /** Не удаляй этот код никогда */
 instance.interceptors.response.use(
