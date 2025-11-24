@@ -1,0 +1,90 @@
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: #2d2d2d;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  color: white;
+}
+
+.profile-card h1 {
+  margin: 0 0 30px 0;
+  font-size: 28px;
+  text-align: center;
+  color: white;
+}
+
+.profile-info {
+  margin-bottom: 30px;
+}
+
+.profile-field {
+  margin-bottom: 20px;
+}
+
+.profile-field label {
+  display: block;
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.profile-field p {
+  margin: 0;
+  font-size: 18px;
+  color: white;
+  padding: 12px;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  background-color: #4a4a4a;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a5a5a;
+}
+
+.btn-logout {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: #c82333;
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 20px;
+}
